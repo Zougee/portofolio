@@ -11,16 +11,13 @@ import AnimatedContent from "./components/AnimatedContent/AnimatedContent";
 export default function Home() {
   return (
     <div className="min-h-screen overflow-x-hidden bg-[#1d3c45] text-white">
-      {/* ✅ Navbar */}
       <Navbar />
 
-      {/* ✅ Hero Section */}
       <section
         id="home"
         className="container mx-auto min-h-screen px-6 lg:px-12 flex items-center pt-24"
       >
         <div className="grid grid-cols-12 w-full">
-          {/* ✅ Kiri */}
           <div className="col-span-12 md:col-span-6 flex items-center">
             <div className="flex flex-col gap-6">
               <AnimatedContent
@@ -56,7 +53,6 @@ export default function Home() {
                 </div>
               </AnimatedContent>
 
-              {/* ✅ Nama dan Judul */}
               <div>
                 <BlurText
                   text="M. Gading Nur Alif Widodo"
@@ -74,7 +70,6 @@ export default function Home() {
                 />
               </div>
 
-              {/* ✅ Deskripsi */}
               <div>
                 <SplitText
                   text="I'm an IT Specialist in IoT, with the Ability to Design and Develop Automated, Integrated Solutions. Skilled in Web Design using Modern Frameworks, with Strong Expertise in Computer Networking to Ensure Scalable and Reliable Systems."
@@ -93,7 +88,6 @@ export default function Home() {
             </div>
           </div>
 
-          {/* ✅ Kanan (Lanyard responsif, proporsional, tidak ramping di HP) */}
           <div className="col-span-12 md:col-span-6 flex justify-center items-start mt-8 md:mt-4">
             <div
               className="
@@ -106,18 +100,15 @@ export default function Home() {
                 -mt-6 sm:-mt-8 md:-mt-10 lg:-mt-12
               "
             >
-              <Lanyard position={[0, 0, 12]} gravity={[0, -40, 0]} />
             </div>
           </div>
         </div>
       </section>
 
-      {/* ✅ Projects Section */}
       <section id="projects" className="pt-20">
         <Proyek />
       </section>
 
-      {/* ✅ Contact Section */}
       <footer id="contact" className="bg-[#162b32] py-10 mt-20">
         <div className="container mx-auto text-center">
           <h2 className="text-3xl font-bold mb-6 text-white">Contact Me</h2>
