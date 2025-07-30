@@ -1,12 +1,18 @@
 'use client';
 
-import Navbar from "./components/Navbar/Navbar";
-import Proyek from "./components/Proyek/Proyek";
-import Lanyard from "./components/Lanyard/Lanyard";
-import RotatingText from "./components/RotatingText/RotatingText";
-import BlurText from "./components/BlurText/BlurText";
-import SplitText from "./components/SplitText/SplitText";
-import AnimatedContent from "./components/AnimatedContent/AnimatedContent";
+import dynamic from 'next/dynamic';
+import Navbar from './components/Navbar/Navbar';
+import Proyek from './components/Proyek/Proyek';
+import RotatingText from './components/RotatingText/RotatingText';
+import BlurText from './components/BlurText/BlurText';
+import SplitText from './components/SplitText/SplitText';
+import AnimatedContent from './components/AnimatedContent/AnimatedContent';
+
+// ✅ Import Lanyard secara dinamis agar tidak bikin lag di awal
+const Lanyard = dynamic(() => import('./components/Lanyard/Lanyard'), {
+  ssr: false,
+  loading: () => <div className="text-center text-white">Loading 3D model...</div>,
+});
 
 export default function Home() {
   return (
@@ -36,18 +42,18 @@ export default function Home() {
                   <h1 className="text-2xl font-bold">I'm Ready for</h1>
                   <RotatingText
                     texts={[
-                      "Internet of Things",
-                      "Web Design",
-                      "Networking"
+                      'Internet of Things',
+                      'Web Design',
+                      'Networking',
                     ]}
                     mainClassName="px-2 sm:px-2 md:px-3 bg-[#d2601a] text-black overflow-hidden py-0.5 sm:py-1 justify-center rounded-lg text-2xl font-bold inline-flex transition-all"
-                    staggerFrom={"last"}
-                    initial={{ y: "100%" }}
+                    staggerFrom="last"
+                    initial={{ y: '100%' }}
                     animate={{ y: 0 }}
-                    exit={{ y: "-120%" }}
+                    exit={{ y: '-120%' }}
                     staggerDuration={0.025}
                     splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 md:pb-1"
-                    transition={{ type: "spring", damping: 30, stiffness: 400 }}
+                    transition={{ type: 'spring', damping: 30, stiffness: 400 }}
                     rotationInterval={2000}
                   />
                 </div>
@@ -92,14 +98,15 @@ export default function Home() {
             <div
               className="
                 aspect-square
-                w-[80vw] max-w-[300px]         /* 📱 HP: pakai lebar layar, batasi 300px */
-                sm:w-[320px] sm:max-w-none      /* 📱+ Tablet kecil */
+                w-[80vw] max-w-[300px]
+                sm:w-[320px] sm:max-w-none
                 md:w-[380px]
                 lg:w-[500px]
                 flex items-center justify-center
                 -mt-6 sm:-mt-8 md:-mt-10 lg:-mt-12
               "
             >
+              <Lanyard position={[0, 0, 12]} gravity={[0, -40, 0]} />
             </div>
           </div>
         </div>
